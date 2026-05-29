@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_Clientes.Data;
 
@@ -11,9 +12,11 @@ using Web_Clientes.Data;
 namespace Web_Clientes.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260529185543_NuevaTablaClientes")]
+    partial class NuevaTablaClientes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -228,68 +231,56 @@ namespace Web_Clientes.Data.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnOrder(4);
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Cedula")
                         .IsRequired()
                         .HasMaxLength(13)
-                        .HasColumnType("nvarchar(13)")
-                        .HasColumnOrder(2);
+                        .HasColumnType("nvarchar(13)");
 
                     b.Property<string>("Celular")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnOrder(7);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ciudad")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnOrder(10);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo_Electronico")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnOrder(8);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
                         .IsRequired()
                         .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)")
-                        .HasColumnOrder(9);
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<DateTime>("Fecha_Nacimiento")
-                        .HasColumnType("datetime2")
-                        .HasColumnOrder(5);
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Fecha_Registro")
-                        .HasColumnType("datetime2")
-                        .HasColumnOrder(12);
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Genero")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnOrder(6);
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnOrder(3);
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Provincia")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnOrder(11);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 

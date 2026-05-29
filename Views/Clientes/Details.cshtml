@@ -1,52 +1,71 @@
 @model Web_Clientes.Models.ClienteModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles del Cliente";
 }
 
-<h1>Details</h1>
+<h1 class="display-5 mt-4 mb-3" style="font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; color: #2b303a; font-weight: 300; letter-spacing: -0.5px;">
+    Detalles del Cliente
+</h1>
 
-<div>
-    <h4>ClienteModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombres_Cliente)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombres_Cliente)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellidos)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellidos)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Correo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Correo)
-        </dd>
-    </dl>
+<hr style="border-color: #51b5ae; opacity: 0.2;" />
+
+<div class="mt-4" style="font-family: 'Segoe UI', sans-serif; max-width: 700px;">
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">ID</div>
+        <div class="col-sm-8" style="font-weight: bold; color: #212529;">@Model.id</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Cédula</div>
+        <div class="col-sm-8">@Model.Cedula</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Nombres</div>
+        <div class="col-sm-8">@Model.Nombres</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Apellidos</div>
+        <div class="col-sm-8">@Model.Apellidos</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Fecha de Nacimiento</div>
+        <div class="col-sm-8">@Model.Fecha_Nacimiento.ToShortDateString()</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Género</div>
+        <div class="col-sm-8">@Model.Genero</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Celular</div>
+        <div class="col-sm-8">@Model.Celular</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Correo Electrónico</div>
+        <div class="col-sm-8">@Model.Correo_Electronico</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Dirección</div>
+        <div class="col-sm-8">@Model.Direccion</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Ciudad</div>
+        <div class="col-sm-8">@Model.Ciudad</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Provincia</div>
+        <div class="col-sm-8">@Model.Provincia</div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #dee2e6;">
+        <div class="col-sm-4" style="font-weight: 600; color: #495057;">Fecha de Registro</div>
+        <div class="col-sm-8" style="color: #6c757d;">@Model.Fecha_Registro</div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="mt-4 mb-5" style="font-family: 'Segoe UI', sans-serif;">
+    <a asp-action="Edit" asp-route-id="@Model.id" class="btn" style="background-color: #ffe8d6; color: #a75d00; font-weight: 500; border: 1px solid #ffdad6; border-radius: 6px; padding: 8px 24px; margin-right: 8px;">
+        Editar
+    </a>
+    <a asp-action="Index" class="btn" style="background-color: #e9ecef; color: #495057; font-weight: 500; padding: 8px 24px; border-radius: 6px; border: 1px solid #dee2e6;">
+        Regresar
+    </a>
 </div>
